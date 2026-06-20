@@ -148,7 +148,7 @@ fn build_status_card() -> (gtk::Box, StatusHandles) {
     conditional.set_visible(false);
 
     // Version affichée = version publiée (cf. metainfo + tag Git). Schéma calendaire AA.MM.JJ.
-    let version = gtk::Label::new(Some("Version 26.06.20"));
+    let version = gtk::Label::new(Some("Version 26.6.20"));
     version.add_css_class("lcn-version");
     version.set_halign(gtk::Align::Start);
 

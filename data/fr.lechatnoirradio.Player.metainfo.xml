@@ -29,25 +29,25 @@
   </branding>
   <screenshots>
     <screenshot type="default">
-      <image>https://raw.githubusercontent.com/Dr-John-8bits/lechatnoir-linux/v26.06.20/screenshots/01-accueil-clair.png</image>
+      <image>https://raw.githubusercontent.com/Dr-John-8bits/lechatnoir-linux/v26.6.20/screenshots/01-accueil-clair.png</image>
       <caption>Accueil — direct, derniers titres et programme du jour</caption>
     </screenshot>
     <screenshot>
-      <image>https://raw.githubusercontent.com/Dr-John-8bits/lechatnoir-linux/v26.06.20/screenshots/02-grille-sombre.png</image>
+      <image>https://raw.githubusercontent.com/Dr-John-8bits/lechatnoir-linux/v26.6.20/screenshots/02-grille-sombre.png</image>
       <caption>Grille des programmes (thème sombre)</caption>
     </screenshot>
     <screenshot>
-      <image>https://raw.githubusercontent.com/Dr-John-8bits/lechatnoir-linux/v26.06.20/screenshots/03-voix-clair.png</image>
+      <image>https://raw.githubusercontent.com/Dr-John-8bits/lechatnoir-linux/v26.6.20/screenshots/03-voix-clair.png</image>
       <caption>Voix et formats — les émissions de la station</caption>
     </screenshot>
     <screenshot>
-      <image>https://raw.githubusercontent.com/Dr-John-8bits/lechatnoir-linux/v26.06.20/screenshots/04-apropos-sombre.png</image>
+      <image>https://raw.githubusercontent.com/Dr-John-8bits/lechatnoir-linux/v26.6.20/screenshots/04-apropos-sombre.png</image>
       <caption>À propos de la radio (thème sombre)</caption>
     </screenshot>
   </screenshots>
   <releases>
-    <release version="26.06.20" date="2026-06-20" type="stable">
-      <url type="details">https://github.com/Dr-John-8bits/lechatnoir-linux/releases/tag/v26.06.20</url>
+    <release version="26.6.20" date="2026-06-20" type="stable">
+      <url type="details">https://github.com/Dr-John-8bits/lechatnoir-linux/releases/tag/v26.6.20</url>
       <description>
         <p>Première version publique pour Linux : écoute du direct, grille des
         programmes, voix et émissions, actualités, et intégration au bureau

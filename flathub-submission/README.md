@@ -2,7 +2,7 @@
 
 Ces **2 fichiers** constituent la proposition à déposer sur Flathub :
 
-- `fr.lechatnoirradio.Player.yml` — le manifeste (source = dépôt Git au tag `v26.06.20`, build hors-ligne)
+- `fr.lechatnoirradio.Player.yml` — le manifeste (source = dépôt Git au tag `v26.6.20`, build hors-ligne)
 - `cargo-sources.json` — les dépendances Rust vendorées (généré depuis `Cargo.lock`)
 
 ## Comment les utiliser (étape « Soumettre »)
