@@ -67,4 +67,5 @@ Tous les endpoints sont dans `crates/lcn-core/src/config.rs`.
 ## Plateformes
 
 Cible v1 : Ubuntu 24.04+ (GNOME) et Linux Mint 21/22+ (Cinnamon), x86_64, Wayland + X11.
-Crédit photo du logo : **Yirmi June**.
+Crédit photo du logo et de l'icône : **Yirmi June** (utilisée avec autorisation —
+voir [`ASSETS.md`](ASSETS.md) pour les droits des visuels).

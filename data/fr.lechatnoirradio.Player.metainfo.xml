@@ -4,7 +4,7 @@
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-3.0-only</project_license>
   <name>Le Chat Noir Radio</name>
-  <summary>Écoutez la webradio Le Chat Noir</summary>
+  <summary>Webradio indépendante en direct</summary>
   <description>
     <p>
       Application d'écoute de la webradio Le Chat Noir : flux en direct, grille des
@@ -46,7 +46,8 @@
     </screenshot>
   </screenshots>
   <releases>
-    <release version="26.06.20" date="2026-06-20">
+    <release version="26.06.20" date="2026-06-20" type="stable">
+      <url type="details">https://github.com/Dr-John-8bits/lechatnoir-linux/releases/tag/v26.06.20</url>
       <description>
         <p>Première version publique pour Linux : écoute du direct, grille des
         programmes, voix et émissions, actualités, et intégration au bureau

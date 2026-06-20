@@ -3,11 +3,11 @@ resolver = "2"
 members = ["crates/lcn-core", "crates/lcn-app"]
 
 [workspace.package]
-version = "0.1.0"
+version = "26.6.20"
 edition = "2021"
 license = "GPL-3.0-only"
 authors = ["Le Chat Noir <radio@lechatnoirradio.fr>"]
-repository = ""
+repository = "https://github.com/Dr-John-8bits/lechatnoir-linux"
 rust-version = "1.80"
 
 [profile.release]
