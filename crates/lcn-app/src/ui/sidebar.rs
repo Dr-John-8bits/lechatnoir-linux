@@ -147,8 +147,8 @@ fn build_status_card() -> (gtk::Box, StatusHandles) {
     conditional.set_xalign(0.0);
     conditional.set_visible(false);
 
-    // TODO(M4) : version réelle « AA.MM.JJ (N) » calculée au build (Europe/Paris).
-    let version = gtk::Label::new(Some("Version 26.06.13 (1)"));
+    // Version affichée = version publiée (cf. metainfo + tag Git). Schéma calendaire AA.MM.JJ.
+    let version = gtk::Label::new(Some("Version 26.06.20"));
     version.add_css_class("lcn-version");
     version.set_halign(gtk::Align::Start);
 

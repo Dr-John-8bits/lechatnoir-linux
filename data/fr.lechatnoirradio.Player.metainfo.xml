@@ -21,17 +21,37 @@
   <launchable type="desktop-id">fr.lechatnoirradio.Player.desktop</launchable>
   <content_rating type="oars-1.1" />
   <url type="homepage">https://lechatnoirradio.fr</url>
+  <url type="vcs-browser">https://github.com/Dr-John-8bits/lechatnoir-linux</url>
+  <url type="bugtracker">https://github.com/Dr-John-8bits/lechatnoir-linux/issues</url>
   <branding>
     <color type="primary" scheme_preference="light">#0c84cc</color>
     <color type="primary" scheme_preference="dark">#36a6df</color>
   </branding>
   <screenshots>
     <screenshot type="default">
-      <image>https://lechatnoirradio.fr/assets/media/screenshots/accueil.png</image>
+      <image>https://raw.githubusercontent.com/Dr-John-8bits/lechatnoir-linux/v26.06.20/screenshots/01-accueil-clair.png</image>
       <caption>Accueil — direct, derniers titres et programme du jour</caption>
+    </screenshot>
+    <screenshot>
+      <image>https://raw.githubusercontent.com/Dr-John-8bits/lechatnoir-linux/v26.06.20/screenshots/02-grille-sombre.png</image>
+      <caption>Grille des programmes (thème sombre)</caption>
+    </screenshot>
+    <screenshot>
+      <image>https://raw.githubusercontent.com/Dr-John-8bits/lechatnoir-linux/v26.06.20/screenshots/03-voix-clair.png</image>
+      <caption>Voix et formats — les émissions de la station</caption>
+    </screenshot>
+    <screenshot>
+      <image>https://raw.githubusercontent.com/Dr-John-8bits/lechatnoir-linux/v26.06.20/screenshots/04-apropos-sombre.png</image>
+      <caption>À propos de la radio (thème sombre)</caption>
     </screenshot>
   </screenshots>
   <releases>
-    <release version="0.1.0" date="2026-06-20"/>
+    <release version="26.06.20" date="2026-06-20">
+      <description>
+        <p>Première version publique pour Linux : écoute du direct, grille des
+        programmes, voix et émissions, actualités, et intégration au bureau
+        (touches multimédia / centre de contrôle).</p>
+      </description>
+    </release>
   </releases>
 </component>
