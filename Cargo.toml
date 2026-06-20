@@ -1,0 +1,17 @@
+[workspace]
+resolver = "2"
+members = ["crates/lcn-core", "crates/lcn-app"]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+license = "GPL-3.0-only"
+authors = ["Le Chat Noir <radio@lechatnoirradio.fr>"]
+repository = ""
+rust-version = "1.80"
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+strip = true

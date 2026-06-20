@@ -1,0 +1,706 @@
+{
+  "schema": "lcn-schedule/1",
+  "app": "LCN Concepteur de Grille",
+  "generatedAt": "2026-06-12T15:41:30+02:00",
+  "timezone": "Europe/Paris",
+  "aliases": {
+    "Fragments": "Matinée : Fragments",
+    "Trajectoires": "Matinée : Trajectoires",
+    "Immersion": "Matinée : Immersion",
+    "Traversées": "Matinée : Traversées",
+    "La table du chat (repère de mi-journée)": "La table du chat",
+    "blocSonic Mixtapes": "blocSonic",
+    "Instinct mode": "L'instinct mode",
+    "Autre Nuit": "L'Autre Nuit",
+    "Pseudocumentaire de l'espace": "Le Pseudocumentaire de l'espace",
+    "Pseudodocumentaire de l'espace": "Le Pseudocumentaire de l'espace",
+    "Le Pseudodocumentaire de l'espace": "Le Pseudocumentaire de l'espace",
+    "Transmissions du Dr. John": "Les Transmissions du Dr. John",
+    "Ondes du Chat Noir": "Les Ondes du Chat Noir"
+  },
+  "days": [
+    {
+      "id": "mon",
+      "name": "Lundi",
+      "shortName": "Lun",
+      "summary": "Le Migou, Fragments, le lundi rock, blocSonic, Tha Bloc Report et le retour de L’Autre Nuit.",
+      "slots": [
+        {
+          "time": "00h00",
+          "title": "La Grande Nuit",
+          "desc": "Paysages sonores étendus, pièces immersives.",
+          "showId": "la-grande-nuit",
+          "kind": "music_block",
+          "start": "00:00",
+          "end": "07:00"
+        },
+        {
+          "time": "07h00",
+          "title": "Le Migou",
+          "desc": "Réveil café ! 1 morceau de moins de 10 minutes.",
+          "showId": "le-migou",
+          "kind": "editorial_event",
+          "start": "07:00",
+          "end": "07:05"
+        },
+        {
+          "time": "Puis",
+          "title": "Matinée : Fragments",
+          "desc": "Courtes dérives musicales de morceaux de 10 à 15 minutes.",
+          "showId": "fragments",
+          "kind": "music_block",
+          "start": "07:05",
+          "end": "12:00",
+          "meta": true
+        },
+        {
+          "time": "12h00",
+          "title": "La table du chat",
+          "desc": "Chanson, electro douce, ambient léger.",
+          "showId": "la-table-du-chat",
+          "kind": "music_block",
+          "start": "12:00",
+          "end": "14:00"
+        },
+        {
+          "time": "14h00",
+          "title": "L'instinct mode",
+          "desc": "Chronique du vestiaire by Lady Em.",
+          "showId": "l-instinct-mode",
+          "kind": "editorial_event",
+          "start": "14:00",
+          "end": "14:05"
+        },
+        {
+          "time": "Puis",
+          "title": "Rock de l'aprème",
+          "desc": "On réchauffe le rock'n'roll :D",
+          "showId": "rock-de-lapreme",
+          "kind": "music_block",
+          "start": "14:05",
+          "end": "18:00",
+          "meta": true,
+          "highlight": true
+        },
+        {
+          "time": "18h00",
+          "title": "blocSonic",
+          "desc": "Sélection aléatoire dans le vivier blocSonic : hip-hop indépendant, beats, formes vives et curation dédiée.",
+          "showId": "blocsonic",
+          "kind": "music_block",
+          "start": "18:00",
+          "end": "19:00",
+          "highlight": true
+        },
+        {
+          "time": "19h00",
+          "title": "Tha Bloc Report",
+          "desc": "Nouveautés blocSonic, pépites d’archives et sélection maison par Donnie Ozone.",
+          "showId": "tha-bloc-report",
+          "kind": "editorial_event",
+          "start": "19:00",
+          "end": "20:00",
+          "highlight": true
+        },
+        {
+          "time": "Puis",
+          "title": "Rock du soir",
+          "desc": "Retour au bloc rock du lundi soir jusqu’au rendez-vous de 23h40.",
+          "showId": "rock-du-soir",
+          "kind": "music_block",
+          "start": "20:00",
+          "end": "23:40",
+          "meta": true,
+          "highlight": true
+        },
+        {
+          "time": "23h40",
+          "title": "L'Autre Nuit",
+          "desc": "Lectures sans centre et machines hésitantes.",
+          "showId": "l-autre-nuit",
+          "kind": "editorial_event",
+          "start": "23:40",
+          "end": "24:00"
+        }
+      ]
+    },
+    {
+      "id": "tue",
+      "name": "Mardi",
+      "shortName": "Mar",
+      "summary": "Le Migou, Trajectoires, l’aprème noise, Home Taping et le Noise du soir jusqu’au pseudocumentaire.",
+      "slots": [
+        {
+          "time": "00h00",
+          "title": "La Grande Nuit",
+          "desc": "Paysages sonores étendus, pièces immersives.",
+          "showId": "la-grande-nuit",
+          "kind": "music_block",
+          "start": "00:00",
+          "end": "07:00"
+        },
+        {
+          "time": "07h00",
+          "title": "Le Migou",
+          "desc": "Réveil café ! 1 morceau de moins de 10 minutes.",
+          "showId": "le-migou",
+          "kind": "editorial_event",
+          "start": "07:00",
+          "end": "07:05"
+        },
+        {
+          "time": "Puis",
+          "title": "Matinée : Trajectoires",
+          "desc": "Dérives musicales de morceaux de 15 à 30 minutes.",
+          "showId": "trajectoires",
+          "kind": "music_block",
+          "start": "07:05",
+          "end": "12:00",
+          "meta": true
+        },
+        {
+          "time": "12h00",
+          "title": "La table du chat",
+          "desc": "Chanson, electro douce, ambient léger.",
+          "showId": "la-table-du-chat",
+          "kind": "music_block",
+          "start": "12:00",
+          "end": "14:00"
+        },
+        {
+          "time": "14h00",
+          "title": "L'instinct mode",
+          "desc": "Chronique du vestiaire by Lady Em.",
+          "showId": "l-instinct-mode",
+          "kind": "editorial_event",
+          "start": "14:00",
+          "end": "14:05"
+        },
+        {
+          "time": "Puis",
+          "title": "Noise de l'aprème",
+          "desc": "Noise-rock, post-punk, etc.",
+          "showId": "noise-de-lapreme",
+          "kind": "music_block",
+          "start": "14:05",
+          "end": "18:00",
+          "meta": true,
+          "highlight": true
+        },
+        {
+          "time": "18h00",
+          "title": "Home Taping Is Killing Music",
+          "desc": "Captations pirates, concerts enregistrés sur le vif, archives live, sueur, scène et bootlegs.",
+          "showId": "home-taping-is-killing-music",
+          "kind": "editorial_event",
+          "start": "18:00",
+          "end": "19:00",
+          "highlight": true
+        },
+        {
+          "time": "Puis",
+          "title": "Noise du soir",
+          "desc": "Retour au bloc noise du mardi soir jusqu’au rendez-vous de 23h40.",
+          "showId": "noise-du-soir",
+          "kind": "music_block",
+          "start": "19:00",
+          "end": "23:40",
+          "meta": true,
+          "highlight": true
+        },
+        {
+          "time": "23h40",
+          "title": "Le Pseudocumentaire de l'espace",
+          "desc": "Fiction sonore et dépression verte.",
+          "showId": "le-pseudodocumentaire-de-lespace",
+          "kind": "editorial_event",
+          "start": "23:40",
+          "end": "24:00"
+        }
+      ]
+    },
+    {
+      "id": "wed",
+      "name": "Mercredi",
+      "shortName": "Mer",
+      "summary": "Immersion, Transmissions, chats sauvages, Documents de terrain, Entre chien et loup, Rapport d’exobiologie et Ondes du Chat Noir.",
+      "slots": [
+        {
+          "time": "00h00",
+          "title": "La Grande Nuit",
+          "desc": "Paysages sonores étendus, pièces immersives.",
+          "showId": "la-grande-nuit",
+          "kind": "music_block",
+          "start": "00:00",
+          "end": "07:00"
+        },
+        {
+          "time": "07h00",
+          "title": "Le Migou",
+          "desc": "Réveil café ! 1 morceau de moins de 10 minutes.",
+          "showId": "le-migou",
+          "kind": "editorial_event",
+          "start": "07:00",
+          "end": "07:05"
+        },
+        {
+          "time": "Puis",
+          "title": "Matinée : Immersion",
+          "desc": "Longues dérives musicales de morceaux de plus de 30 minutes.",
+          "showId": "immersion",
+          "kind": "music_block",
+          "start": "07:05",
+          "end": "12:00",
+          "meta": true
+        },
+        {
+          "time": "12h00",
+          "title": "La table du chat",
+          "desc": "Chanson, electro douce, ambient léger.",
+          "showId": "la-table-du-chat",
+          "kind": "music_block",
+          "start": "12:00",
+          "end": "14:00"
+        },
+        {
+          "time": "14h00",
+          "title": "Les Transmissions du Dr. John",
+          "desc": "Archive aléatoire des Transmissions du Dr. John.",
+          "showId": "les-transmissions-du-dr-john",
+          "kind": "editorial_event",
+          "start": "14:00",
+          "end": "15:00"
+        },
+        {
+          "time": "Puis",
+          "title": "Les chats sauvages",
+          "desc": "Le jour des enfants, c'est musique aléatoire !",
+          "showId": "les-chats-sauvages",
+          "kind": "music_block",
+          "start": "15:00",
+          "end": "18:00",
+          "meta": true,
+          "highlight": true
+        },
+        {
+          "time": "18h00",
+          "title": "Documents de terrain",
+          "desc": "Captations de terrain monophoniques et stéréophoniques, paysages sonores, écoutes situées.",
+          "showId": "documents-de-terrain",
+          "kind": "editorial_window",
+          "start": "18:00",
+          "end": "19:00",
+          "highlight": true
+        },
+        {
+          "time": "19h00",
+          "title": "Entre chien et loup",
+          "desc": "Electronic oblique, jazz libre, krautrock, dérives psychés et formes expérimentales pour faire glisser le mercredi vers la nuit radiophonique.",
+          "showId": "entre-chien-et-loup",
+          "kind": "music_block",
+          "start": "19:00",
+          "end": "21:00",
+          "highlight": true
+        },
+        {
+          "time": "21h00",
+          "title": "Rapport d’exobiologie",
+          "desc": "Musique concrète, collages sonores et formes expérimentales venues d’Institute For Alien Research.",
+          "showId": "rapport-d-exobiologie",
+          "kind": "editorial_window",
+          "start": "21:00",
+          "end": "22:00",
+          "highlight": true
+        },
+        {
+          "time": "22h00",
+          "title": "Les Ondes du Chat Noir",
+          "desc": "Émissions, fictions, transmissions et formes radiophoniques choisies au hasard.",
+          "showId": "les-ondes-du-chat-noir",
+          "kind": "editorial_window",
+          "start": "22:00",
+          "end": "24:00"
+        }
+      ]
+    },
+    {
+      "id": "thu",
+      "name": "Jeudi",
+      "shortName": "Jeu",
+      "summary": "Traversées matinales, cinéma pour les oreilles, Radio Gadin et fiction tardive.",
+      "slots": [
+        {
+          "time": "00h00",
+          "title": "La Grande Nuit",
+          "desc": "Paysages sonores étendus, pièces immersives.",
+          "showId": "la-grande-nuit",
+          "kind": "music_block",
+          "start": "00:00",
+          "end": "07:00"
+        },
+        {
+          "time": "07h00",
+          "title": "Le Migou",
+          "desc": "Réveil café.",
+          "showId": "le-migou",
+          "kind": "editorial_event",
+          "start": "07:00",
+          "end": "07:05"
+        },
+        {
+          "time": "Puis",
+          "title": "Matinée : Traversées",
+          "desc": "Dérives musicales de morceaux de moins de 10 minutes.",
+          "showId": "traversees",
+          "kind": "music_block",
+          "start": "07:05",
+          "end": "12:00",
+          "meta": true
+        },
+        {
+          "time": "12h00",
+          "title": "La table du chat",
+          "desc": "Chanson, electro douce, ambient léger.",
+          "showId": "la-table-du-chat",
+          "kind": "music_block",
+          "start": "12:00",
+          "end": "14:00"
+        },
+        {
+          "time": "14h00",
+          "title": "L'instinct mode",
+          "desc": "Chronique du vestiaire by Lady Em.",
+          "showId": "l-instinct-mode",
+          "kind": "editorial_event",
+          "start": "14:00",
+          "end": "14:05"
+        },
+        {
+          "time": "Puis",
+          "title": "Cinéma pour les oreilles",
+          "desc": "Bandes-son, paysages projetés, musiques d'images et dérives cinématiques.",
+          "showId": "cinema-pour-les-oreilles",
+          "kind": "music_block",
+          "start": "14:05",
+          "end": "18:00",
+          "meta": true,
+          "highlight": true
+        },
+        {
+          "time": "18h00",
+          "title": "Radio Gadin",
+          "desc": "Plongée dans le lore de Flash Dog Duke Silver",
+          "showId": "radio-gadin",
+          "kind": "music_block",
+          "start": "18:00",
+          "end": "23:40",
+          "highlight": true,
+          "badge": "Focus"
+        },
+        {
+          "time": "23h40",
+          "title": "Le Pseudocumentaire de l'espace",
+          "desc": "Fiction sonore et dépression verte.",
+          "showId": "le-pseudodocumentaire-de-lespace",
+          "kind": "editorial_event",
+          "start": "23:40",
+          "end": "24:00"
+        }
+      ]
+    },
+    {
+      "id": "fri",
+      "name": "Vendredi",
+      "shortName": "Ven",
+      "summary": "Fragments, indie de l'aprème et My Favorite Dead Radio.",
+      "slots": [
+        {
+          "time": "00h00",
+          "title": "La Grande Nuit",
+          "desc": "Paysages sonores étendus, pièces immersives.",
+          "showId": "la-grande-nuit",
+          "kind": "music_block",
+          "start": "00:00",
+          "end": "07:00"
+        },
+        {
+          "time": "07h00",
+          "title": "Le Migou",
+          "desc": "Réveil café.",
+          "showId": "le-migou",
+          "kind": "editorial_event",
+          "start": "07:00",
+          "end": "07:05"
+        },
+        {
+          "time": "Puis",
+          "title": "Matinée : Fragments",
+          "desc": "Courtes dérives musicales de morceaux de 10 à 15 minutes.",
+          "showId": "fragments",
+          "kind": "music_block",
+          "start": "07:05",
+          "end": "12:00",
+          "meta": true
+        },
+        {
+          "time": "12h00",
+          "title": "La table du chat",
+          "desc": "Chanson, electro douce, ambient léger.",
+          "showId": "la-table-du-chat",
+          "kind": "music_block",
+          "start": "12:00",
+          "end": "14:00"
+        },
+        {
+          "time": "14h00",
+          "title": "L'instinct mode",
+          "desc": "Chronique du vestiaire by Lady Em.",
+          "showId": "l-instinct-mode",
+          "kind": "editorial_event",
+          "start": "14:00",
+          "end": "14:05"
+        },
+        {
+          "time": "Puis",
+          "title": "Indie de l'aprème",
+          "desc": "Indie rock, shoegaze, dream pop, etc.",
+          "showId": "indie-de-lapreme",
+          "kind": "music_block",
+          "start": "14:05",
+          "end": "18:00",
+          "meta": true,
+          "highlight": true
+        },
+        {
+          "time": "18h00",
+          "title": "My Favorite Dead Radio",
+          "desc": "Focus sur les affinités entre Drive with a dead girl et les lives de My Favourite Everything.",
+          "showId": "my-favorite-dead-radio",
+          "kind": "music_block",
+          "start": "18:00",
+          "end": "23:40",
+          "highlight": true,
+          "badge": "Focus"
+        },
+        {
+          "time": "23h40",
+          "title": "L'Autre Nuit",
+          "desc": "Lectures sans centre et machines hésitantes.",
+          "showId": "l-autre-nuit",
+          "kind": "editorial_event",
+          "start": "23:40",
+          "end": "24:00"
+        }
+      ]
+    },
+    {
+      "id": "sat",
+      "name": "Samedi",
+      "shortName": "Sam",
+      "summary": "Matin félin, Console-toi, Documents de terrain, synthèse analogique, Beats & Flow, Doucement, Camembert électrique et grand soir.",
+      "slots": [
+        {
+          "time": "00h00",
+          "title": "La Grande Nuit",
+          "desc": "Paysages sonores étendus, pièces immersives.",
+          "showId": "la-grande-nuit",
+          "kind": "music_block",
+          "start": "00:00",
+          "end": "07:00"
+        },
+        {
+          "time": "07h00",
+          "title": "Matin félin",
+          "desc": "Machines souples, électronique joueuse, grooves discrets et étrangetés félines pour ouvrir le samedi.",
+          "showId": "matin-félin",
+          "kind": "music_block",
+          "start": "07:00",
+          "end": "10:00"
+        },
+        {
+          "time": "10h00",
+          "title": "Console-toi",
+          "desc": "ASMR de l'Atari et poésie 8-bit.",
+          "showId": "console-toi",
+          "kind": "editorial_event",
+          "start": "10:00",
+          "end": "10:30",
+          "highlight": true
+        },
+        {
+          "time": "Puis",
+          "title": "Documents de terrain",
+          "desc": "Captations de terrain monophoniques et stéréophoniques, paysages sonores, écoutes situées.",
+          "showId": "documents-de-terrain",
+          "kind": "editorial_window",
+          "start": "10:30",
+          "end": "11:45",
+          "meta": true,
+          "highlight": true
+        },
+        {
+          "time": "11h45",
+          "title": "Je ne sais pas jouer du synthé",
+          "desc": "On traverse la synthèse analogique par l'essai-erreur.",
+          "showId": "je-ne-sais-pas-jouer-du-synthe",
+          "kind": "editorial_event",
+          "start": "11:45",
+          "end": "12:00"
+        },
+        {
+          "time": "12h00",
+          "title": "La table du chat",
+          "desc": "Chanson, electro douce, ambient léger.",
+          "showId": "la-table-du-chat-repère-de-mi-journée",
+          "kind": "editorial_event",
+          "start": "12:00",
+          "end": "13:00"
+        },
+        {
+          "time": "14h00",
+          "title": "L'instinct mode",
+          "desc": "Chronique du vestiaire by Lady Em.",
+          "showId": "l-instinct-mode",
+          "kind": "editorial_event",
+          "start": "14:00",
+          "end": "14:05"
+        },
+        {
+          "time": "Puis",
+          "title": "Beats & Flow",
+          "desc": "Hip-hop, trip-hop, downtempo, beats et grooves pour faire basculer doucement le samedi après-midi.",
+          "showId": "beats-et-flow",
+          "kind": "music_block",
+          "start": "14:05",
+          "end": "16:00",
+          "meta": true,
+          "highlight": true
+        },
+        {
+          "time": "16h00",
+          "title": "Doucement",
+          "desc": "Dream pop, post-rock, lo-fi et écoutes lentes pour laisser retomber l’après-midi avant le grand soir.",
+          "showId": "doucement",
+          "kind": "music_block",
+          "start": "16:00",
+          "end": "18:00",
+          "highlight": true
+        },
+        {
+          "time": "18h00",
+          "title": "Camembert électrique",
+          "desc": "Une heure hebdomadaire dédiée aux explorations expérimentales du label Camembert Électrique.",
+          "showId": "camembert-électrique",
+          "kind": "editorial_event",
+          "start": "18:00",
+          "end": "19:00",
+          "highlight": true
+        },
+        {
+          "time": "19h00",
+          "title": "When Day Chokes a Radio",
+          "desc": "Focus Intégrale When Day Chokes The Night",
+          "showId": "when-day-chokes-a-radio",
+          "kind": "music_block",
+          "start": "19:00",
+          "end": "23:40",
+          "highlight": true,
+          "badge": "Focus"
+        },
+        {
+          "time": "23h40",
+          "title": "Le Pseudocumentaire de l'espace",
+          "desc": "Fiction sonore (20 min).",
+          "showId": "le-pseudodocumentaire-de-lespace",
+          "kind": "editorial_event",
+          "start": "23:40",
+          "end": "24:00"
+        }
+      ]
+    },
+    {
+      "id": "sun",
+      "name": "Dimanche",
+      "shortName": "Dim",
+      "summary": "Réveil lent, Ondes du Chat Noir, siestes du chat, Citron, Messe Noire et Documents de terrain.",
+      "slots": [
+        {
+          "time": "00h00",
+          "title": "La Grande Nuit",
+          "desc": "Paysages sonores étendus, pièces immersives.",
+          "showId": "la-grande-nuit",
+          "kind": "music_block",
+          "start": "00:00",
+          "end": "07:00"
+        },
+        {
+          "time": "07h00",
+          "title": "Le réveil lent du chat",
+          "desc": "Musiques calmes, flottantes et encore ensommeillées pour entrer doucement dans le jour.",
+          "showId": "le-reveil-lent-du-chat",
+          "kind": "music_block",
+          "start": "07:00",
+          "end": "12:00"
+        },
+        {
+          "time": "12h00",
+          "title": "La table du chat",
+          "desc": "Chanson, electro douce, ambient léger.",
+          "showId": "la-table-du-chat",
+          "kind": "music_block",
+          "start": "12:00",
+          "end": "14:00"
+        },
+        {
+          "time": "14h00",
+          "title": "Les Ondes du Chat Noir",
+          "desc": "Émissions, fictions, transmissions et formes radiophoniques choisies au hasard.",
+          "showId": "les-ondes-du-chat-noir",
+          "kind": "editorial_window",
+          "start": "14:00",
+          "end": "15:00"
+        },
+        {
+          "time": "15h00",
+          "title": "Les siestes du chat",
+          "desc": "Dream pop, lo-fi, ambient doux et formes suspendues pour laisser le dimanche s'étirer.",
+          "showId": "les-siestes-du-chat",
+          "kind": "music_block",
+          "start": "15:00",
+          "end": "18:00"
+        },
+        {
+          "time": "18h00",
+          "title": "Citron",
+          "desc": "Acid, 8-bits, Atari Punk Noise, breakcore et machines mutantes pour faire basculer le dimanche soir.",
+          "showId": "citron",
+          "kind": "music_block",
+          "start": "18:00",
+          "end": "20:00",
+          "highlight": true
+        },
+        {
+          "time": "20h00",
+          "title": "Messe Noire",
+          "desc": "Rituel noir vespéral : metal, doom, dark, coldwave, industrial et autres formes lourdes, froides ou sombres.",
+          "showId": "messe-noire",
+          "kind": "music_block",
+          "start": "20:00",
+          "end": "22:00",
+          "highlight": true,
+          "badge": "Rituel"
+        },
+        {
+          "time": "22h00",
+          "title": "Documents de terrain",
+          "desc": "Captations de terrain monophoniques et stéréophoniques, paysages sonores, écoutes situées, pour apaiser la soirée avant La Grande Nuit.",
+          "showId": "documents-de-terrain",
+          "kind": "editorial_window",
+          "start": "22:00",
+          "end": "24:00",
+          "highlight": true
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=Le Chat Noir Radio
+Comment=Écoutez la webradio Le Chat Noir
+Exec=lechatnoir-player
+Icon=fr.lechatnoirradio.Player
+Categories=AudioVideo;Audio;Player;
+Keywords=radio;webradio;musique;direct;streaming;
+StartupNotify=true
+StartupWMClass=fr.lechatnoirradio.Player
+Terminal=false

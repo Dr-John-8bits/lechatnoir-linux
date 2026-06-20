@@ -1,0 +1,259 @@
+/* Le Chat Noir — feuille de style GTK (charte « laboratoire radiophonique »).
+ * À plat : surfaces opaques + filets 1px, pas de flou « verre ». Les couleurs
+ * proviennent des @define-color injectés par theme.rs (clair/sombre).
+ * Démarrage M0 : tokens de base + nav + carte. Étoffé en M4 (finitions DA). */
+
+/* ── Mapping vers les couleurs nommées libadwaita ──────────────────────────
+ * Fait adopter la palette LCN par toute la chrome native (header bar, fonds,
+ * accent des contrôles, lignes sélectionnées) dans les DEUX thèmes, puisque les
+ * @lcn_* basculent clair/sombre. L'accent Adwaita devient notre azur. */
+@define-color window_bg_color @lcn_bg;
+@define-color window_fg_color @lcn_ink;
+@define-color view_bg_color @lcn_surface;
+@define-color view_fg_color @lcn_ink;
+@define-color headerbar_bg_color @lcn_bg;
+@define-color headerbar_fg_color @lcn_ink;
+@define-color headerbar_border_color @lcn_line;
+@define-color card_bg_color @lcn_surface;
+@define-color card_fg_color @lcn_ink;
+@define-color accent_bg_color @lcn_accent;
+@define-color accent_fg_color @lcn_accent_contrast;
+@define-color accent_color @lcn_accent_ink;
+
+window.lcn-root {
+  background-color: @lcn_bg;
+  color: @lcn_ink;
+}
+
+/* ── Sidebar ──────────────────────────────────────────────────────────── */
+
+.lcn-sidebar {
+  background-color: @lcn_bg;
+  border-right: 1px solid @lcn_line;
+}
+
+.lcn-logo {
+  border-radius: 8px;
+}
+
+.lcn-brand-name {
+  font-weight: 650;
+  font-size: 19px;
+  color: @lcn_ink;
+}
+
+.lcn-brand-tagline {
+  font-family: monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.05em;
+  color: @lcn_muted;
+}
+
+/* Lignes de navigation : libellé mono muted ; actif = ink + voile azur. */
+.lcn-nav-row {
+  font-family: monospace;
+  font-size: 12.5px;
+  letter-spacing: 0.04em;
+  color: @lcn_muted;
+  border-radius: 6px;
+  padding: 8px 12px;
+}
+
+.lcn-nav-row:hover {
+  background-color: @lcn_accent_veil;
+}
+
+.lcn-nav-row.selected {
+  color: @lcn_ink;
+  background-color: @lcn_accent_veil;
+}
+
+/* ── Carte de statut (bas de sidebar) ─────────────────────────────────── */
+
+.lcn-kicker {
+  font-family: monospace;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: @lcn_muted;
+}
+
+.lcn-kicker.live {
+  color: @lcn_direct;
+}
+
+.lcn-version {
+  font-family: monospace;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  color: @lcn_muted;
+}
+
+/* ── Pastille de signal (SignalPill) ──────────────────────────────────── */
+
+.lcn-signal-pill {
+  border-radius: 999px;
+  padding: 7px 12px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+}
+
+/* Contour (défaut) : teinte azur. */
+.lcn-signal-pill {
+  color: @lcn_accent;
+  background-color: alpha(@lcn_accent, 0.12);
+  border: 1px solid alpha(@lcn_accent, 0.25);
+}
+
+/* Pleine = DIRECT braise (seule exception à l'azur). */
+.lcn-signal-pill.live {
+  color: @lcn_accent_contrast;
+  background-color: @lcn_direct;
+  border: none;
+}
+
+.lcn-signal-pill.offline {
+  color: @lcn_muted;
+  background-color: alpha(@lcn_muted, 0.12);
+  border: 1px solid alpha(@lcn_muted, 0.25);
+}
+
+/* ── Cartes & barre de lecture ────────────────────────────────────────── */
+
+.lcn-card {
+  background-color: @lcn_surface;
+  border: 1px solid @lcn_line;
+  border-radius: 12px;
+  padding: 12px 14px;
+}
+
+.lcn-player-bar {
+  background-color: @lcn_surface;
+  border: 1px solid @lcn_line;
+  border-radius: 12px;
+  padding: 12px 16px;
+}
+
+/* Bouton lecture rond, fond plein azur. */
+.lcn-play-button {
+  border-radius: 999px;
+  background-color: @lcn_accent_fill;
+  color: @lcn_accent_contrast;
+  min-width: 42px;
+  min-height: 42px;
+}
+
+/* ── Titres ───────────────────────────────────────────────────────────── */
+
+.lcn-page-title {
+  font-weight: 650;
+  font-size: 26px;
+  letter-spacing: -0.015em;
+  color: @lcn_ink;
+}
+
+.lcn-section-title {
+  font-weight: 600;
+  font-size: 15px;
+  color: @lcn_ink;
+}
+
+/* Donnée radio (heures, album, année…) toujours en mono. */
+.lcn-data {
+  font-family: monospace;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+}
+
+.lcn-accent {
+  color: @lcn_accent;
+}
+
+/* ── Barre de lecture : titre de piste + indicateur d'état teinté ──────── */
+
+.lcn-track-title {
+  font-size: 14.5px;
+  font-weight: 650;
+  color: @lcn_ink;
+}
+
+.lcn-tint-azur {
+  color: @lcn_accent;
+}
+
+.lcn-tint-braise {
+  color: @lcn_direct;
+}
+
+.lcn-tint-muted {
+  color: @lcn_muted;
+}
+
+/* Pulsation douce du point « à l'antenne » (2,4 s). GTK fige l'animation si
+ * gtk-enable-animations est désactivé (respect de prefers-reduced-motion). */
+@keyframes lcn-pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.3; }
+  100% { opacity: 1; }
+}
+
+.lcn-pulse {
+  animation: lcn-pulse 2.4s ease-in-out infinite;
+}
+
+/* ── Écrans : pills, badges, créneau courant, images ──────────────────── */
+
+.lcn-pill {
+  border-radius: 999px;
+  padding: 4px 14px;
+  font-family: monospace;
+  font-size: 12px;
+  background-color: @lcn_surface;
+  color: @lcn_muted;
+  border: 1px solid @lcn_line;
+  min-height: 0;
+}
+
+.lcn-pill.selected {
+  background-color: alpha(@lcn_accent, 0.18);
+  color: @lcn_ink;
+  border: 1px solid @lcn_line_strong;
+}
+
+.lcn-badge {
+  border-radius: 999px;
+  padding: 2px 9px;
+  font-family: monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.03em;
+  color: @lcn_accent;
+  background-color: alpha(@lcn_accent, 0.12);
+}
+
+.lcn-badge.live {
+  color: @lcn_accent_contrast;
+  background-color: @lcn_direct;
+}
+
+.lcn-current-slot {
+  background-color: @lcn_accent_veil;
+  border-radius: 6px;
+  padding: 6px 8px;
+}
+
+.lcn-bold {
+  font-weight: 650;
+}
+
+.lcn-image {
+  border-radius: 6px;
+  background-color: @lcn_surface_raised;
+}
+
+.lcn-placeholder {
+  border-radius: 6px;
+  background-color: @lcn_surface_raised;
+  border: 1px solid @lcn_line;
+  color: @lcn_muted;
+  font-family: monospace;
+  font-weight: 650;
+}

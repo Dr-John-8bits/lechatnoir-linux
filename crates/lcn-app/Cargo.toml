@@ -1,0 +1,30 @@
+[package]
+name = "lcn-app"
+description = "Le Chat Noir — application de bureau Linux (GTK4/libadwaita/Relm4 + GStreamer + MPRIS)."
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+rust-version.workspace = true
+
+[[bin]]
+name = "lechatnoir-player"
+path = "src/main.rs"
+
+[dependencies]
+lcn-core = { path = "../lcn-core" }
+# UI : GTK4 + libadwaita via Relm4 (MVU). On consomme gtk/adw via les ré-exports
+# de relm4 (relm4::gtk / relm4::adw) pour éviter tout décalage de version.
+relm4 = { version = "0.9", features = ["libadwaita"] }
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+# Audio (M1) : GStreamer playbin3 + courbe de volume cubique→linéaire.
+gstreamer = "0.23"
+gstreamer-audio = "0.23"
+# Réseau (M2b) : HTTP bloquant sur threads worker + canal async vers le thread UI.
+reqwest = { version = "0.12", default-features = false, features = ["blocking", "rustls-tls"] }
+async-channel = "2"
+
+# MPRIS2 (touches média + centre de contrôle) — Linux uniquement (pas de bus D-Bus sur macOS).
+[target.'cfg(target_os = "linux")'.dependencies]
+mpris-server = "0.10"

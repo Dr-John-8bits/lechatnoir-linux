@@ -1,0 +1,8 @@
+# Artefacts de build Rust
+/target/
+
+# Cargo.lock EST committé (c'est une application, pas une bibliothèque) — ne pas l'ignorer.
+
+# Caches d'éditeur / OS
+*.swp
+.DS_Store

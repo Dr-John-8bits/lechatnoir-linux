@@ -1,0 +1,58 @@
+# Manifeste Flatpak — Le Chat Noir Radio (build HORS-LIGNE, conforme Flathub).
+# Les crates Rust sont vendorées via cargo-sources.json (généré par flatpak-cargo-generator
+# à partir de Cargo.lock) : aucun accès réseau pendant la compilation.
+#
+# ⚠️ Pour la SOUMISSION Flathub : remplacer la source `type: dir` par une source `git`
+# pointant le dépôt public + un tag (voir flatpak/FLATHUB-CHECKLIST.md). Le `type: dir`
+# ci-dessous sert au test hors-ligne local.
+app-id: fr.lechatnoirradio.Player
+runtime: org.gnome.Platform
+runtime-version: '49'
+sdk: org.gnome.Sdk
+sdk-extensions:
+  - org.freedesktop.Sdk.Extension.rust-stable
+command: lechatnoir-player
+
+finish-args:
+  # Affichage / GPU
+  - --share=ipc
+  - --socket=wayland
+  - --socket=fallback-x11
+  - --device=dri
+  # Audio (flux Icecast) — compatible Pulse et PipeWire
+  - --socket=pulseaudio
+  # Réseau au RUNTIME (flux + JSON éditoriaux) — requis par une webradio.
+  - --share=network
+  # MPRIS : org.mpris.MediaPlayer2.$FLATPAK_ID est autorisé par défaut → aucun flag.
+
+build-options:
+  append-path: /usr/lib/sdk/rust-stable/bin
+  env:
+    CARGO_HOME: /run/build/lechatnoir/cargo
+
+modules:
+  - name: lechatnoir
+    buildsystem: simple
+    build-commands:
+      - cargo --offline build --release
+      - install -Dm755 target/release/lechatnoir-player /app/bin/lechatnoir-player
+      - install -Dm644 data/fr.lechatnoirradio.Player.desktop
+        /app/share/applications/fr.lechatnoirradio.Player.desktop
+      - install -Dm644 data/fr.lechatnoirradio.Player.metainfo.xml
+        /app/share/metainfo/fr.lechatnoirradio.Player.metainfo.xml
+      - install -Dm644 data/fr.lechatnoirradio.Player.gschema.xml
+        /app/share/glib-2.0/schemas/fr.lechatnoirradio.Player.gschema.xml
+      - for s in 48 64 128 256 512; do install -Dm644
+        "data/icons/hicolor/${s}x${s}/apps/fr.lechatnoirradio.Player.png"
+        "/app/share/icons/hicolor/${s}x${s}/apps/fr.lechatnoirradio.Player.png"; done
+      - glib-compile-schemas /app/share/glib-2.0/schemas
+    sources:
+      - type: dir
+        path: ..
+        skip:
+          - target
+          - .git
+          - flatpak
+      # Crates Rust vendorées (offline). Régénérer après tout changement de Cargo.lock :
+      #   flatpak-cargo-generator.py Cargo.lock -o flatpak/cargo-sources.json
+      - cargo-sources.json

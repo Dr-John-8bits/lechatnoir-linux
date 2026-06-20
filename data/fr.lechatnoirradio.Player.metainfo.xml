@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>fr.lechatnoirradio.Player</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-3.0-only</project_license>
+  <name>Le Chat Noir Radio</name>
+  <summary>Écoutez la webradio Le Chat Noir</summary>
+  <description>
+    <p>
+      Application d'écoute de la webradio Le Chat Noir : flux en direct, grille des
+      programmes, voix et émissions, et actualités de la station.
+    </p>
+    <p>
+      Le Chat Noir est une webradio lilloise, artisanale, indépendante et autogérée,
+      dédiée aux créations sonores et musicales.
+    </p>
+  </description>
+  <developer id="fr.lechatnoirradio">
+    <name>Le Chat Noir</name>
+  </developer>
+  <launchable type="desktop-id">fr.lechatnoirradio.Player.desktop</launchable>
+  <content_rating type="oars-1.1" />
+  <url type="homepage">https://lechatnoirradio.fr</url>
+  <branding>
+    <color type="primary" scheme_preference="light">#0c84cc</color>
+    <color type="primary" scheme_preference="dark">#36a6df</color>
+  </branding>
+  <screenshots>
+    <screenshot type="default">
+      <image>https://lechatnoirradio.fr/assets/media/screenshots/accueil.png</image>
+      <caption>Accueil — direct, derniers titres et programme du jour</caption>
+    </screenshot>
+  </screenshots>
+  <releases>
+    <release version="0.1.0" date="2026-06-20"/>
+  </releases>
+</component>

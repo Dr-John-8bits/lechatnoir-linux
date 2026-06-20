@@ -1,0 +1,142 @@
+{
+  "schema": "lcn-voices/1",
+  "updatedAt": "2026-06-12",
+  "producers": [
+    {
+      "role": "Production",
+      "name": "Dr. John",
+      "image": "assets/media/producers/drjohn.webp",
+      "bio": "Explore les zones floues entre réalité sonore, fiction radiophonique et écoute lente."
+    },
+    {
+      "role": "Découverte",
+      "name": "Julien",
+      "image": "assets/media/producers/julien.jpg",
+      "bio": "Traverse la synthèse analogique par l'essai, l'apprentissage et l'expérimentation continue."
+    },
+    {
+      "role": "Chronique",
+      "name": "Lady Em",
+      "image": "assets/media/producers/ladyem.webp",
+      "bio": "Démonte les mythes du vestiaire moderne sur fond de velvet tips.",
+      "href": "https://audioblog.arteradio.com/blog/263269/le-chat-noir"
+    },
+    {
+      "role": "Concerts",
+      "name": "Naki et Guillaume",
+      "image": "assets/media/producers/NakietGuillaume.webp",
+      "bio": "Rediffusent ici les concerts qu’ils accueillent et enregistrent pour MFE sur RCV99."
+    },
+    {
+      "role": "Curateur",
+      "name": "Resting Bell",
+      "image": "assets/media/producers/restingbell.webp",
+      "bio": "Diffuse des musiques méditatives, expérimentales, électriques et paisibles issues du netlabel Resting Bell."
+    },
+    {
+      "role": "Curateur",
+      "name": "Institute For Alien Research",
+      "image": "assets/media/shows/ifar.jpg",
+      "bio": "Compose une curation fine et choisie dans le catalogue de l'Institute For Alien Research."
+    },
+    {
+      "role": "Curateur",
+      "name": "Tha Bloc Report",
+      "image": "assets/media/producers/thablocreport.webp",
+      "bio": "Fait circuler chaque semaine les nouveautés blocSonic, les pépites d’archives et quelques affinités bien choisies."
+    },
+    {
+      "role": "Jingles",
+      "name": "Les potes",
+      "image": "assets/media/producers/potes.webp",
+      "bio": "Prêtent voix, idées et impulsions aux jingles, aux accroches et à la texture collective de la radio."
+    }
+  ],
+  "shows": [
+    {
+      "meta": "Émission",
+      "title": "L'Autre Nuit",
+      "image": "assets/media/shows/lautrenuit.webp",
+      "text": "Lectures sans centre, voix fatiguées et machines hésitantes pour les heures qui dérivent.",
+      "href": "https://audioblog.arteradio.com/blog/263269/le-chat-noir",
+      "actionLabel": "Écouter le podcast"
+    },
+    {
+      "meta": "Fiction sonore",
+      "title": "Le Pseudocumentaire de l'espace",
+      "image": "assets/media/shows/pseudocumentaire.webp",
+      "text": "Fiction d’anticipation où le faux emprunte au réel pour explorer la dépression verte.",
+      "href": "https://audioblog.arteradio.com/blog/194586/pseudocumentaire-de-l-espace",
+      "actionLabel": "Écouter le podcast"
+    },
+    {
+      "meta": "Émission",
+      "title": "Console-toi",
+      "image": "assets/media/shows/consoletoi.webp",
+      "text": "ASMR Atari, stress 8-bit et poésie du samedi matin à micro ouvert.",
+      "href": "https://audioblog.arteradio.com/blog/263269/le-chat-noir",
+      "actionLabel": "Écouter le podcast"
+    },
+    {
+      "meta": "Émission",
+      "title": "Conquérant",
+      "image": "assets/media/shows/conquerant.webp",
+      "text": "Une conquérante et un conquérant désœuvrés, sans époque ni royaume, en chemin vers des mondes inutiles.",
+      "href": "https://audioblog.arteradio.com/blog/263269/le-chat-noir",
+      "actionLabel": "Écouter le podcast"
+    },
+    {
+      "meta": "Labo Expé",
+      "title": "MS-20 Interférences",
+      "image": "assets/media/shows/ms20.webp",
+      "text": "Dérives du Korg MS-20 entre nappes instables, séquences rugueuses et heureux accidents.",
+      "actionLabel": "En rotation sur la radio"
+    },
+    {
+      "meta": "Labo Expé",
+      "title": "2600 Modulations",
+      "image": "assets/media/shows/2600-modulations.webp",
+      "text": "Voyage modulaire dans les circuits du Behringer 2600, là où les modulations prennent le dessus.",
+      "actionLabel": "En rotation sur la radio"
+    },
+    {
+      "meta": "Labo Expé",
+      "title": "Fantomatik",
+      "image": "assets/media/shows/FANTOMATOK.webp",
+      "text": "Musique acide et répétitive, lignes obstinées et séquences qui creusent leur propre tunnel.",
+      "actionLabel": "En rotation sur la radio"
+    },
+    {
+      "meta": "Captations",
+      "title": "Home Taping is Killing Music",
+      "image": "assets/media/shows/hometaping.webp",
+      "text": "Bootlegs, bruits du lieu et mémoire brute de la scène captée sur le vif.",
+      "href": "https://hometapingiskillingmusic.bandcamp.com/",
+      "actionLabel": "Ouvrir l'archive sonore"
+    },
+    {
+      "meta": "Captation",
+      "title": "Documents de terrain",
+      "image": "assets/media/shows/documentsdeterrain.webp",
+      "text": "Captations monophoniques et stéréophoniques de terrain.",
+      "actionLabel": "En rotation sur la radio"
+    },
+    {
+      "meta": "Mixtapes",
+      "title": "Camembert électrique",
+      "image": "assets/media/shows/camembert.webp",
+      "text": "Le label y déroule chaque semaine une sélection de musique expérimentale issue de son propre catalogue.",
+      "href": "https://www.camembertelectrique.com/",
+      "actionLabel": "Visiter le label"
+    },
+    {
+      "meta": "Mixtapes",
+      "title": "blocSonic - mixtapes",
+      "image": "assets/media/shows/blocsonic.png",
+      "imageFit": "contain",
+      "text": "Mixtapes hip-hop, downtempo et indie du label américain blocSonic.",
+      "href": "https://blocsonic.com/",
+      "actionLabel": "Visiter le site"
+    }
+  ]
+}

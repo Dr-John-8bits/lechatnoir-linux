@@ -1,0 +1,19 @@
+[package]
+name = "lcn-core"
+description = "Le Chat Noir — logique pure (modèles, parsing, état d'antenne, reconnexion). Sans GTK : compile et se teste partout."
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+rust-version.workspace = true
+
+[lints.clippy]
+all = "warn"
+
+[dependencies]
+# Parsing des flux temps réel (M2a) : JSON tolérant + détection DIRECT / album-année.
+serde_json = "1"
+regex = "1"
+# Dates/fuseau Europe/Paris pour l'historique CSV (parseDate multi-format, créneaux).
+chrono = "0.4"
+chrono-tz = "0.10"

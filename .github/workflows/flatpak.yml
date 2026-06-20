@@ -1,0 +1,25 @@
+name: Flatpak
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  flatpak:
+    name: Build & lint Flatpak
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/flathub-infra/flatpak-github-actions:gnome-49
+      options: --privileged
+    steps:
+      - uses: actions/checkout@v4
+      # Construit le Flatpak (HORS-LIGNE, via cargo-sources.json) et exécute
+      # flatpak-builder-lint sur le manifeste et le build (bloquant si erreur).
+      - uses: flatpak/flatpak-github-actions/flatpak-builder@v6
+        with:
+          bundle: fr.lechatnoirradio.Player.flatpak
+          manifest-path: flatpak/fr.lechatnoirradio.Player.yml
+          cache-key: flatpak-builder-${{ github.sha }}
+          run-tests: false

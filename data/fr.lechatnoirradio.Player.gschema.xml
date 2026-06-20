@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+  <schema id="fr.lechatnoirradio.Player" path="/fr/lechatnoirradio/Player/">
+    <key name="lcn-player-volume" type="d">
+      <default>0.72</default>
+      <range min="0.0" max="1.0"/>
+      <summary>Volume de lecture</summary>
+      <description>Volume du lecteur, de 0.0 à 1.0.</description>
+    </key>
+    <key name="lcn-theme-preference" type="s">
+      <choices>
+        <choice value="auto"/>
+        <choice value="light"/>
+        <choice value="dark"/>
+      </choices>
+      <default>"auto"</default>
+      <summary>Préférence de thème</summary>
+      <description>Thème de l'interface : auto (suit le système), light ou dark.</description>
+    </key>
+  </schema>
+</schemalist>
