@@ -150,8 +150,9 @@ fn build_status_card() -> (gtk::Box, StatusHandles) {
     conditional.set_xalign(0.0);
     conditional.set_visible(false);
 
-    // Version affichée = version publiée (cf. metainfo + tag Git). Schéma calendaire AA.MM.JJ.
-    let version = gtk::Label::new(Some("Version 26.6.20"));
+    // Version affichée = version du paquet (Cargo.toml [workspace.package]), calculée au build.
+    let version_text = format!("Version {}", env!("CARGO_PKG_VERSION"));
+    let version = gtk::Label::new(Some(&version_text));
     version.add_css_class("lcn-version");
     version.set_halign(gtk::Align::Start);
 

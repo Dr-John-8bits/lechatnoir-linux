@@ -3,7 +3,7 @@
 # (branche nommée fr.lechatnoirradio.Player). Build 100 % hors-ligne (crates vendorées).
 app-id: fr.lechatnoirradio.Player
 runtime: org.gnome.Platform
-runtime-version: '49'
+runtime-version: '50'
 sdk: org.gnome.Sdk
 sdk-extensions:
   - org.freedesktop.Sdk.Extension.rust-stable
