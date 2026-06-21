@@ -45,5 +45,5 @@ modules:
       - type: git
         url: https://github.com/Dr-John-8bits/lechatnoir-linux.git
         tag: v26.6.20
-        commit: 037133d8174e70a5d82b6ebbaef379e235cdb42b
+        commit: 3010af70554ae39aafad10304a61a2c49cedf7dc
       - cargo-sources.json

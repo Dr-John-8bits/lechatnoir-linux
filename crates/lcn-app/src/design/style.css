@@ -133,13 +133,26 @@ window.lcn-root {
   padding: 12px 16px;
 }
 
-/* Bouton lecture rond, fond plein azur. */
+/* Bouton lecture rond, fond plein azur.
+ * background-image:none + border/box-shadow:none → on écrase le style natif du bouton
+ * GTK (dégradé + relief) qui sinon masquait notre couleur de fond. */
 .lcn-play-button {
   border-radius: 999px;
+  background-image: none;
   background-color: @lcn_accent_fill;
   color: @lcn_accent_contrast;
-  min-width: 42px;
-  min-height: 42px;
+  border: none;
+  box-shadow: none;
+  min-width: 44px;
+  min-height: 44px;
+}
+
+.lcn-play-button:hover {
+  background-color: @lcn_accent;
+}
+
+.lcn-play-button:active {
+  background-color: @lcn_accent_ink;
 }
 
 /* ── Titres ───────────────────────────────────────────────────────────── */

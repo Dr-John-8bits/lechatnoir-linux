@@ -212,6 +212,14 @@ impl SimpleComponent for RootModel {
                 theme::set_preference(&style_manager, pref);
             }
         }
+        // Hook de test : simule un clic « Sombre » à chaud (vérifie en headless que la
+        // bascule recharge bien le CSS au runtime — cf. theme::connect_color_scheme_notify).
+        if std::env::var("LCN_TEST_TOGGLE_DARK").is_ok() {
+            let sm = style_manager.clone();
+            relm4::gtk::glib::timeout_add_local_once(std::time::Duration::from_millis(2500), move || {
+                theme::set_preference(&sm, ThemePreference::Dark);
+            });
+        }
         install_quit_accelerator();
 
         let player = PlayerController::new();

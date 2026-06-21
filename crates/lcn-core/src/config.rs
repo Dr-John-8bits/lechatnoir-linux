@@ -33,16 +33,14 @@ pub const HISTORY_CSV_URL: &str = "https://stream.lechatnoirradio.fr/history/now
 
 /// Base du contenu éditorial mutualisé (news / schedule / voices / médias).
 ///
-/// **AUJOURD'HUI = PRÉPROD.** Le jour de la prod, remplacer cette **seule** constante par
-/// [`PRODUCTION_BASE_URL`]. Les chemins relatifs `assets/data/*.json` et `assets/media/*`
-/// restent identiques ; les endpoints temps réel ne bougent pas.
-///
-/// ⚠️ Précondition de bascule (vérifiée le 13/06/2026 : NON satisfaite) : `schedule.json`,
-/// `voices.json` ET `news.json` doivent répondre **200** sur la prod. Au 13/06, schedule et
-/// voices sont en **404** sur prod → basculer maintenant casserait grille + voix.
-pub const CONTENT_BASE_URL: &str = "https://dr-john-8bits.github.io/lechatnoirradio-preprod/";
+/// **BASCULÉ EN PRODUCTION le 21/06/2026.** Précondition vérifiée ce jour-là : `news.json`,
+/// `schedule.json` ET `voices.json` répondent **200** sur la prod, avec une **structure
+/// identique** à la préprod (contenu plus à jour). La **préprod va être vidée** → ne plus la
+/// cibler. Les chemins relatifs `assets/data/*.json` et `assets/media/*` restent identiques ;
+/// les endpoints temps réel ne bougent pas.
+pub const CONTENT_BASE_URL: &str = "https://lechatnoirradio.fr/";
 
-/// Base de contenu en production (cible de bascule, **pas encore prête**).
+/// Base de contenu en production. Depuis le 21/06/2026, identique à [`CONTENT_BASE_URL`].
 pub const PRODUCTION_BASE_URL: &str = "https://lechatnoirradio.fr/";
 
 /// Chemins relatifs des JSON éditoriaux (joints à [`CONTENT_BASE_URL`], **sans** slash initial).
@@ -156,7 +154,7 @@ mod tests {
         assert!(!NEWS_PATH.starts_with('/'));
         assert_eq!(
             news_url(CONTENT_BASE_URL),
-            "https://dr-john-8bits.github.io/lechatnoirradio-preprod/assets/data/news.json"
+            "https://lechatnoirradio.fr/assets/data/news.json"
         );
         assert_eq!(
             schedule_url(PRODUCTION_BASE_URL),
@@ -174,9 +172,9 @@ mod tests {
     }
 
     #[test]
-    fn we_are_still_on_preprod() {
-        // Tant que la prod n'est pas prête (schedule/voices en 404), on reste en préprod.
-        // Ce test documente la bascule : le jour J, CONTENT_BASE_URL == PRODUCTION_BASE_URL.
-        assert_eq!(CONTENT_BASE_URL, "https://dr-john-8bits.github.io/lechatnoirradio-preprod/");
+    fn content_is_on_production() {
+        // Basculé en prod le 21/06/2026 (préprod vidée). CONTENT_BASE_URL == PRODUCTION_BASE_URL.
+        assert_eq!(CONTENT_BASE_URL, PRODUCTION_BASE_URL);
+        assert_eq!(CONTENT_BASE_URL, "https://lechatnoirradio.fr/");
     }
 }

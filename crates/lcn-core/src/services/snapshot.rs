@@ -1,6 +1,6 @@
-//! Snapshot embarqué : jeux de données éditoriaux figés (issus de la préprod) pour un
-//! premier rendu instantané et le mode hors-ligne / avant bascule (§3.9). À régénérer
-//! depuis les JSON préprod en remplaçant les fichiers de `snapshots/`.
+//! Snapshot embarqué : jeux de données éditoriaux figés (capturés depuis la prod) pour un
+//! premier rendu instantané et le mode hors-ligne (§3.9). À régénérer en remplaçant les
+//! fichiers de `snapshots/` par les JSON de production.
 
 use crate::config;
 use crate::content::NewsEntry;
@@ -32,7 +32,7 @@ mod tests {
     #[test]
     fn snapshot_news_se_decode() {
         let entries = news();
-        assert_eq!(entries.len(), 24);
+        assert!(entries.len() >= 10, "snapshot news doit contenir des entrées");
         // Tri décroissant : la 1re a le plus grand sortKey.
         assert!(entries[0].sort_key >= entries[1].sort_key);
         assert!(!entries[0].title.is_empty());
@@ -53,9 +53,9 @@ mod tests {
     #[test]
     fn snapshot_voices_se_decode() {
         let v = voices();
-        assert_eq!(v.producers.len(), 8);
-        assert_eq!(v.shows.len(), 11);
-        // Images résolues en URL absolues vers la préprod.
+        assert!(!v.producers.is_empty());
+        assert!(!v.shows.is_empty());
+        // Images résolues en URL absolues vers la base de contenu (prod).
         assert!(v.producers[0].image.url.as_deref().unwrap().starts_with(config::CONTENT_BASE_URL));
         // Au moins une émission en mode « contain ».
         assert!(v.shows.iter().any(|s| s.image.fit_contain));

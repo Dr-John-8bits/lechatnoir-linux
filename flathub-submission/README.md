@@ -7,11 +7,13 @@ Ces **2 fichiers** constituent la proposition à déposer sur Flathub :
 
 ## Comment les utiliser (étape « Soumettre »)
 
-1. Forker `github.com/flathub/flathub` sur ton compte.
-2. Dans ton fork, créer une branche nommée **exactement** `fr.lechatnoirradio.Player`
-   (à partir de la branche `master` de Flathub).
-3. Copier **ces 2 fichiers** à la racine de cette branche.
-4. Commit + push, puis ouvrir une **Pull Request** vers `flathub/flathub`.
+1. Forker `github.com/flathub/flathub` (décocher « Copy the master branch only »,
+   pour récupérer la branche `new-pr`).
+2. Dans ton fork, créer une branche **à partir de `new-pr`** (nom libre, p.ex. `fr.lechatnoirradio.Player`).
+3. Copier **ces 2 fichiers** à la **racine** de cette branche.
+4. Commit + push, puis ouvrir une **Pull Request** **contre la branche `new-pr`**
+   de `flathub/flathub` (⚠️ surtout pas `master`).
+   Titre de la PR : **`Add fr.lechatnoirradio.Player`**.
 
 Un robot construit la PR ; des relecteurs valident ; à la fusion, l'app est publiée et
 un dépôt dédié `flathub/fr.lechatnoirradio.Player` est créé pour les mises à jour.

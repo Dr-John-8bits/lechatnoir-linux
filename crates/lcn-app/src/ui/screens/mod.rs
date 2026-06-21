@@ -55,9 +55,16 @@ pub fn clear(container: &gtk::Box) {
     }
 }
 
+/// Aère l'interligne d'un label multi-ligne (facteur de hauteur de ligne Pango).
+fn set_line_height(label: &gtk::Label, factor: f64) {
+    let attrs = gtk::pango::AttrList::new();
+    attrs.insert(gtk::pango::AttrFloat::new_line_height(factor));
+    label.set_attributes(Some(&attrs));
+}
+
 /// En-tête de section : titre + sous-titre optionnel.
 pub fn section_header(title: &str, subtitle: Option<&str>) -> gtk::Box {
-    let b = gtk::Box::new(gtk::Orientation::Vertical, 2);
+    let b = gtk::Box::new(gtk::Orientation::Vertical, 5);
     let t = gtk::Label::new(Some(title));
     t.add_css_class("lcn-section-title");
     t.set_halign(gtk::Align::Start);
@@ -82,6 +89,7 @@ pub fn body(text: &str) -> gtk::Label {
     l.set_wrap(true);
     l.set_xalign(0.0);
     l.set_halign(gtk::Align::Start);
+    set_line_height(&l, 1.35);
     l
 }
 
@@ -92,6 +100,7 @@ pub fn mono(text: &str) -> gtk::Label {
     l.set_wrap(true);
     l.set_xalign(0.0);
     l.set_halign(gtk::Align::Start);
+    set_line_height(&l, 1.35);
     l
 }
 

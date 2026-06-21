@@ -70,18 +70,32 @@ pub fn install(style_manager: &adw::StyleManager) {
     // Hook captures/CI : LCN_FORCE_THEME force le choix clair/sombre au niveau CSS,
     // indépendamment du portail (déterministe en headless). Vide = suit le système.
     let forced = std::env::var("LCN_FORCE_THEME").ok();
-    let apply = move |sm: &adw::StyleManager| {
+    // `load_from_string` est derrière la feature gtk `v4_12` ; `load_from_data(&str)` est
+    // inconditionnel et équivalent (voir `reload_fn`).
+    let reload = std::rc::Rc::new(reload_fn(provider, forced));
+    reload(style_manager);
+    // On recharge sur les DEUX signaux : `dark` (bascule du thème système) ET `color-scheme`
+    // (bascule explicite via le sélecteur in-app `set_color_scheme`). Sans le second, cliquer
+    // « Sombre » assombrissait la chrome libadwaita SANS recharger nos @lcn_* → encre claire
+    // sur fond sombre = texte illisible. (bug remonté par le test GNOME du 21/06/2026.)
+    let r = reload.clone();
+    style_manager.connect_dark_notify(move |sm| r(sm));
+    style_manager.connect_color_scheme_notify(move |sm| reload(sm));
+}
+
+/// Fabrique la fonction de (re)chargement du CSS pour un provider + un éventuel thème forcé.
+fn reload_fn(
+    provider: gtk::CssProvider,
+    forced: Option<String>,
+) -> impl Fn(&adw::StyleManager) {
+    move |sm: &adw::StyleManager| {
         let dark = match forced.as_deref() {
             Some("dark") => true,
             Some("light") => false,
             _ => sm.is_dark(),
         };
-        // `load_from_string` est derrière la feature gtk `v4_12` ; `load_from_data(&str)`
-        // est inconditionnel et équivalent.
         provider.load_from_data(&full_css(dark));
-    };
-    apply(style_manager);
-    style_manager.connect_dark_notify(apply);
+    }
 }
 
 /// Applique la préférence de thème (3 modes, défaut Auto = suit le système).

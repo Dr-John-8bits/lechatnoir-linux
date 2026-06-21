@@ -34,8 +34,10 @@ Dans `flatpak/fr.lechatnoirradio.Player.yml`, remplacer la source locale par une
 - [ ] `appstreamcli validate data/fr.lechatnoirradio.Player.metainfo.xml` (zéro erreur).
 
 ## 4. Soumettre
-- [ ] Forker `github.com/flathub/flathub`, créer une branche `fr.lechatnoirradio.Player`, y ajouter le
-      manifeste + `cargo-sources.json`, ouvrir une **PR** sur `flathub/flathub`.
+- [ ] Forker `github.com/flathub/flathub` (**décocher** « Copy the master branch only »).
+- [ ] Créer une branche **à partir de `new-pr`** et y ajouter, **à la racine**, le manifeste +
+      `cargo-sources.json` (les 2 fichiers de `flathub-submission/`).
+- [ ] Ouvrir une **PR contre la branche `new-pr`** (⚠️ **pas** `master`), titre **`Add fr.lechatnoirradio.Player`**.
 - [ ] Après acceptation : un dépôt `flathub/fr.lechatnoirradio.Player` est créé ; les builds sont gérés
       par l'infra Flathub.
 

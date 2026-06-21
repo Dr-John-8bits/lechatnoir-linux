@@ -62,17 +62,20 @@ fn brand_header() -> gtk::Box {
     logo.update_property(&[gtk::accessible::Property::Label("Logo Le Chat Noir")]);
     header.append(&logo);
 
-    let text = gtk::Box::new(gtk::Orientation::Vertical, 2);
+    let text = gtk::Box::new(gtk::Orientation::Vertical, 4);
     text.set_valign(gtk::Align::Center);
     text.set_hexpand(true);
 
     let name = gtk::Label::new(Some("Le Chat Noir"));
     name.add_css_class("lcn-brand-name");
     name.set_halign(gtk::Align::Start);
+    name.set_xalign(0.0);
 
     let tagline = gtk::Label::new(Some("Laboratoire radiophonique indépendant"));
     tagline.add_css_class("lcn-brand-tagline");
     tagline.set_halign(gtk::Align::Start);
+    // xalign 0 : sinon les lignes d'un label qui passe à la ligne se centrent (effet « flotte à droite »).
+    tagline.set_xalign(0.0);
     tagline.set_wrap(true);
 
     text.append(&name);
