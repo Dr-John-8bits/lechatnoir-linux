@@ -10,6 +10,7 @@ use relm4::ComponentSender;
 use super::root::{RootInput, RootModel};
 use super::section::Section;
 use crate::design::theme::{self, ThemePreference};
+use crate::services::settings;
 
 /// Widgets de la sidebar exposés au composant racine.
 pub struct SidebarParts {
@@ -183,23 +184,35 @@ fn theme_selector() -> gtk::Box {
     auto.connect_toggled(move |b| {
         if b.is_active() {
             theme::set_preference(&sm, ThemePreference::Auto);
+            settings::set(settings::THEME, "auto");
         }
     });
     let sm = style_manager.clone();
     light.connect_toggled(move |b| {
         if b.is_active() {
             theme::set_preference(&sm, ThemePreference::Light);
+            settings::set(settings::THEME, "light");
         }
     });
     let sm = style_manager.clone();
     dark.connect_toggled(move |b| {
         if b.is_active() {
             theme::set_preference(&sm, ThemePreference::Dark);
+            settings::set(settings::THEME, "dark");
         }
     });
 
-    // Défaut = Auto (suit le système). Connecté après pour rester sans effet de bord.
-    auto.set_active(true);
+    // Restaure la préférence sauvegardée (LCN_FORCE_THEME prioritaire pour les tests/captures).
+    // Activer le bouton déclenche le handler → applique le thème + ré-enregistre (sans effet).
+    let initial = std::env::var("LCN_FORCE_THEME")
+        .ok()
+        .or_else(|| settings::get(settings::THEME))
+        .unwrap_or_else(|| "auto".to_string());
+    match initial.as_str() {
+        "light" => light.set_active(true),
+        "dark" => dark.set_active(true),
+        _ => auto.set_active(true),
+    }
 
     segmented.append(&auto);
     segmented.append(&light);

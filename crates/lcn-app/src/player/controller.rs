@@ -7,7 +7,6 @@
 //! garde-fou génération, auto-guérison). MPRIS = à venir, sur Linux (pas de bus D-Bus sur Mac).
 
 use std::cell::{Cell, RefCell};
-use std::path::PathBuf;
 use std::rc::{Rc, Weak};
 use std::time::Duration;
 
@@ -313,30 +312,13 @@ fn configure_source(source: &gst::Element) {
     }
 }
 
-// ── Persistance du volume ────────────────────────────────────────────────────
-// M1 : simple fichier sous $XDG_CONFIG_HOME/lechatnoir/volume (portable, sans schéma
-// système). Le passage à GSettings (clé `lcn-player-volume`) est prévu au packaging (M5).
-
-fn prefs_path() -> Option<PathBuf> {
-    let base = std::env::var_os("XDG_CONFIG_HOME")
-        .map(PathBuf::from)
-        .or_else(|| std::env::var_os("HOME").map(|h| PathBuf::from(h).join(".config")))?;
-    Some(base.join("lechatnoir").join("volume"))
-}
+// ── Persistance du volume (réglages unifiés `services::settings`) ─────────────
 
 fn load_volume() -> f64 {
-    prefs_path()
-        .and_then(|p| std::fs::read_to_string(p).ok())
-        .and_then(|s| s.trim().parse::<f64>().ok())
-        .map(|v| v.clamp(0.0, 1.0))
-        .unwrap_or(config::DEFAULT_VOLUME)
+    crate::services::settings::get_f64(crate::services::settings::VOLUME, config::DEFAULT_VOLUME)
+        .clamp(0.0, 1.0)
 }
 
 fn save_volume(value: f64) {
-    if let Some(path) = prefs_path() {
-        if let Some(dir) = path.parent() {
-            let _ = std::fs::create_dir_all(dir);
-        }
-        let _ = std::fs::write(path, format!("{value}"));
-    }
+    crate::services::settings::set(crate::services::settings::VOLUME, &value.to_string());
 }

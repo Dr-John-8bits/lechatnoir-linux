@@ -19,6 +19,8 @@ use lcn_core::antenne::{self, AntenneState, Tint};
 use lcn_core::config;
 use lcn_core::player::StreamHealth;
 
+use crate::services::settings;
+
 use super::screens::about::AboutScreen;
 use super::screens::history::HistoryScreen;
 use super::screens::home::HomeScreen;
@@ -186,8 +188,8 @@ impl SimpleComponent for RootModel {
     fn init_root() -> Self::Root {
         adw::ApplicationWindow::builder()
             .title("Le Chat Noir")
-            .default_width(1320)
-            .default_height(860)
+            .default_width(settings::get_i32(settings::WINDOW_WIDTH, 1320))
+            .default_height(settings::get_i32(settings::WINDOW_HEIGHT, 860))
             .width_request(1024)
             .height_request(720)
             .build()
@@ -221,6 +223,20 @@ impl SimpleComponent for RootModel {
             });
         }
         install_quit_accelerator();
+
+        // Géométrie de fenêtre : restaure l'état maximisé, et sauvegarde taille + maximisé
+        // à la fermeture (la taille par défaut est déjà restaurée dans init_root).
+        if settings::get_bool(settings::WINDOW_MAXIMIZED, false) {
+            root.maximize();
+        }
+        root.connect_close_request(move |w| {
+            settings::set_bool(settings::WINDOW_MAXIMIZED, w.is_maximized());
+            if !w.is_maximized() {
+                settings::set_i32(settings::WINDOW_WIDTH, w.default_width());
+                settings::set_i32(settings::WINDOW_HEIGHT, w.default_height());
+            }
+            relm4::gtk::glib::Propagation::Proceed
+        });
 
         let player = PlayerController::new();
         let data = DataStore::new();
