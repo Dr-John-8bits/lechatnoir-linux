@@ -8,6 +8,7 @@
 //! rafraîchie sur changement du lecteur, sur mise à jour des données, et périodiquement
 //! (la fraîcheur se périme avec le temps).
 
+use std::cell::RefCell;
 use std::rc::Rc;
 use std::time::Duration;
 
@@ -74,6 +75,8 @@ pub struct RootWidgets {
 struct Chrome {
     status: StatusHandles,
     bar: PlayerBarHandles,
+    /// Dernier titre notifié (évite de re-notifier à chaque tick / au 1er chargement).
+    last_notified: RefCell<Option<String>>,
 }
 
 impl Chrome {
@@ -116,13 +119,15 @@ impl Chrome {
         // Barre : bloc titre (now-playing).
         match data.now_playing() {
             Some(np) => {
-                self.bar.title.set_text(np.display_title());
+                let title = np.display_title();
+                self.bar.title.set_text(title);
                 let line = np.metadata_line();
                 self.bar.subtitle.set_text(if line.is_empty() {
                     "programmation en cours"
                 } else {
                     &line
                 });
+                self.notify_on_track_change(title, &line, player.is_playing());
             }
             None => {
                 self.bar.title.set_text("Chargement des métadonnées…");
@@ -175,6 +180,29 @@ impl Chrome {
             data.is_live(),
             data.now_playing().map(|n| n.title)
         );
+    }
+
+    /// Notification bureau au CHANGEMENT de titre (jamais au 1er chargement, uniquement en
+    /// lecture). Le dernier titre est mémorisé pour ne pas re-notifier à chaque tick.
+    fn notify_on_track_change(&self, title: &str, line: &str, playing: bool) {
+        let mut last = self.last_notified.borrow_mut();
+        if last.as_deref() == Some(title) {
+            return;
+        }
+        let had_previous = last.is_some();
+        *last = Some(title.to_string());
+        if playing && had_previous && !title.is_empty() {
+            let notif = relm4::gtk::gio::Notification::new("À l'antenne");
+            let body = if line.is_empty() {
+                title.to_string()
+            } else {
+                format!("{title} — {line}")
+            };
+            notif.set_body(Some(&body));
+            if let Some(app) = relm4::gtk::gio::Application::default() {
+                app.send_notification(Some("lcn-now-playing"), &notif);
+            }
+        }
     }
 }
 
@@ -302,6 +330,7 @@ impl SimpleComponent for RootModel {
         let header = adw::HeaderBar::new();
         let website = gtk::LinkButton::with_label(config::WEBSITE_URL, "Site web");
         header.pack_end(&website);
+        header.pack_start(&sleep_timer_button(player.clone()));
 
         let outer = gtk::Box::new(gtk::Orientation::Vertical, 0);
         outer.append(&header);
@@ -314,7 +343,11 @@ impl SimpleComponent for RootModel {
         let mpris = mpris::start(player.clone(), data.clone());
 
         // Chrome + rafraîchissement unifié (lecteur, données, MPRIS, timer de fraîcheur).
-        let chrome = Rc::new(Chrome { status: sidebar_parts.status, bar: bar_handles });
+        let chrome = Rc::new(Chrome {
+            status: sidebar_parts.status,
+            bar: bar_handles,
+            last_notified: RefCell::new(None),
+        });
         let refresh: Rc<dyn Fn()> = {
             let chrome = chrome.clone();
             let player = player.clone();
@@ -431,4 +464,68 @@ fn install_quit_accelerator() {
     quit.connect_activate(move |_, _| app_for_quit.quit());
     app.add_action(&quit);
     app.set_accels_for_action("app.quit", &["<Primary>q"]);
+}
+
+/// Bouton « minuteur de veille » (header) : met le direct en pause après 15/30/60 min.
+/// Un seul minuteur actif à la fois (toute nouvelle sélection annule le précédent).
+fn sleep_timer_button(player: PlayerController) -> gtk::MenuButton {
+    let handle: Rc<RefCell<Option<glib::SourceId>>> = Rc::new(RefCell::new(None));
+
+    let btn = gtk::MenuButton::new();
+    btn.set_icon_name("alarm-symbolic");
+    btn.set_tooltip_text(Some("Minuteur de veille"));
+
+    let popover = gtk::Popover::new();
+    let list = gtk::Box::new(gtk::Orientation::Vertical, 2);
+    list.set_margin_top(6);
+    list.set_margin_bottom(6);
+    list.set_margin_start(6);
+    list.set_margin_end(6);
+
+    for (label, mins) in [
+        ("Désactivé", 0u64),
+        ("Pause dans 15 min", 15),
+        ("Pause dans 30 min", 30),
+        ("Pause dans 60 min", 60),
+    ] {
+        let item = gtk::Button::with_label(label);
+        item.add_css_class("flat");
+        item.set_halign(gtk::Align::Fill);
+
+        let handle = handle.clone();
+        let player = player.clone();
+        let popover_weak = popover.downgrade();
+        let btn_weak = btn.downgrade();
+        item.connect_clicked(move |_| {
+            if let Some(id) = handle.borrow_mut().take() {
+                id.remove();
+            }
+            if mins > 0 {
+                let player = player.clone();
+                let handle_for_fire = handle.clone();
+                let btn_weak_for_fire = btn_weak.clone();
+                let id = glib::timeout_add_local_once(Duration::from_secs(mins * 60), move || {
+                    player.pause();
+                    *handle_for_fire.borrow_mut() = None;
+                    if let Some(b) = btn_weak_for_fire.upgrade() {
+                        b.set_tooltip_text(Some("Minuteur de veille"));
+                    }
+                });
+                *handle.borrow_mut() = Some(id);
+                if let Some(b) = btn_weak.upgrade() {
+                    b.set_tooltip_text(Some(&format!("Veille programmée ({label})")));
+                }
+            } else if let Some(b) = btn_weak.upgrade() {
+                b.set_tooltip_text(Some("Minuteur de veille"));
+            }
+            if let Some(p) = popover_weak.upgrade() {
+                p.popdown();
+            }
+        });
+        list.append(&item);
+    }
+
+    popover.set_child(Some(&list));
+    btn.set_popover(Some(&popover));
+    btn
 }
