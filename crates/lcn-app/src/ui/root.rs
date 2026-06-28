@@ -241,6 +241,24 @@ impl SimpleComponent for RootModel {
         let player = PlayerController::new();
         let data = DataStore::new();
 
+        // Raccourci clavier : Espace = lecture/pause. Contrôleur posé sur la fenêtre (phase
+        // « bubble ») : il ne se déclenche que si aucun widget focalisé (bouton, champ texte,
+        // liste déroulante…) n'a déjà consommé la touche — pas de double-action ni de conflit
+        // avec la saisie.
+        let key_controller = gtk::EventControllerKey::new();
+        {
+            let player = player.clone();
+            key_controller.connect_key_pressed(move |_, keyval, _, _| {
+                if keyval == gtk::gdk::Key::space {
+                    player.toggle();
+                    gtk::glib::Propagation::Stop
+                } else {
+                    gtk::glib::Propagation::Proceed
+                }
+            });
+        }
+        root.add_controller(key_controller);
+
         // Section initiale (défaut Accueil ; surchageable via LCN_START_SECTION pour les captures).
         let initial = std::env::var("LCN_START_SECTION")
             .ok()
