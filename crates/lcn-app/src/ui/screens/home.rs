@@ -54,15 +54,25 @@ impl HomeScreen {
                 title.set_xalign(0.0);
                 title.set_halign(gtk::Align::Start);
                 section.append(&title);
-                if !n.lead.is_empty() {
-                    section.append(&body(&n.lead));
+                // Accroche COURTE (chapô, sinon début du corps), tronquée à 2 lignes : l'accueil
+                // donne envie d'aller lire, il n'affiche pas l'article entier (→ rubrique Actualités).
+                let teaser_text = if !n.lead.is_empty() { n.lead.as_str() } else { n.body.as_str() };
+                if !teaser_text.is_empty() {
+                    let teaser = body(teaser_text);
+                    teaser.set_lines(2);
+                    teaser.set_ellipsize(gtk::pango::EllipsizeMode::End);
+                    section.append(&teaser);
                 }
-                if !n.body.is_empty() {
-                    let preview = body(&n.body);
-                    preview.set_lines(5);
-                    preview.set_ellipsize(gtk::pango::EllipsizeMode::End);
-                    section.append(&preview);
-                }
+                // Appel à l'action vers la rubrique Actualités (via l'action app.show-news).
+                let cta = gtk::Button::new();
+                cta.add_css_class("flat");
+                cta.set_halign(gtk::Align::Start);
+                cta.set_margin_top(2);
+                cta.set_action_name(Some("app.show-news"));
+                let cta_label = gtk::Label::new(Some("Lire toutes les actualités  →"));
+                cta_label.add_css_class("lcn-accent");
+                cta.set_child(Some(&cta_label));
+                section.append(&cta);
             }
             None => section.append(&body("Aucune actualité disponible pour le moment.")),
         }
@@ -131,6 +141,7 @@ impl HomeScreen {
         match current.and_then(|i| day.slots.get(i)) {
             Some(slot) => {
                 let title = gtk::Label::new(Some(&slot.title));
+                title.add_css_class("lcn-body");
                 title.set_wrap(true);
                 title.set_xalign(0.0);
                 title.set_halign(gtk::Align::Start);
@@ -169,6 +180,7 @@ fn track_row(time: &str, title: &str, secondary: &str) -> gtk::Box {
     let text = gtk::Box::new(gtk::Orientation::Vertical, 3);
     text.set_hexpand(true);
     let title_label = gtk::Label::new(Some(title));
+    title_label.add_css_class("lcn-body");
     title_label.set_wrap(true);
     title_label.set_xalign(0.0);
     title_label.set_halign(gtk::Align::Start);

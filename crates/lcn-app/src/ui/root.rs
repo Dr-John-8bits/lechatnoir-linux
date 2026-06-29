@@ -320,6 +320,18 @@ impl SimpleComponent for RootModel {
         if let Some(row) = sidebar_parts.nav_list.row_at_index(initial.index()) {
             sidebar_parts.nav_list.select_row(Some(&row));
         }
+        // Action « app.show-news » : l'accroche actu de l'accueil sélectionne la rubrique
+        // Actualités via la sidebar (la navigation reste ainsi synchronisée avec la liste).
+        {
+            let nav = sidebar_parts.nav_list.clone();
+            let action = relm4::gtk::gio::SimpleAction::new("show-news", None);
+            action.connect_activate(move |_, _| {
+                if let Some(row) = nav.row_at_index(Section::News.index()) {
+                    nav.select_row(Some(&row));
+                }
+            });
+            relm4::main_application().add_action(&action);
+        }
         let (player_bar_widget, bar_handles) = player_bar::build(&player);
 
         let body = gtk::Box::new(gtk::Orientation::Horizontal, 0);

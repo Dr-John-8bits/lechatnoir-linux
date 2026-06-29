@@ -286,6 +286,7 @@ fn entry_row(entry: &HistoryEntry) -> gtk::Box {
     let text = gtk::Box::new(gtk::Orientation::Vertical, 3);
     text.set_hexpand(true);
     let title = gtk::Label::new(Some(&entry.title));
+    title.add_css_class("lcn-body");
     title.set_wrap(true);
     title.set_xalign(0.0);
     title.set_halign(gtk::Align::Start);

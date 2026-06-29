@@ -175,6 +175,14 @@ window.lcn-root {
   font-family: monospace;
   font-size: 12px;
   letter-spacing: 0.02em;
+  color: @lcn_ink;
+}
+
+/* Texte de contenu (corps, titres de créneaux…). Couleur EXPLICITE obligatoire : sinon, sur
+ * les bureaux qui imposent un thème GTK sombre (KDE/Breeze), un label sans couleur hérite
+ * d'une couleur claire et devient illisible sur nos surfaces claires. */
+.lcn-body {
+  color: @lcn_ink;
 }
 
 .lcn-accent {
@@ -255,6 +263,7 @@ window.lcn-root {
 
 .lcn-bold {
   font-weight: 650;
+  color: @lcn_ink;
 }
 
 .lcn-image {

@@ -86,6 +86,7 @@ pub fn card() -> gtk::Box {
 /// Texte rédactionnel (sans), retour à la ligne.
 pub fn body(text: &str) -> gtk::Label {
     let l = gtk::Label::new(Some(text));
+    l.add_css_class("lcn-body");
     l.set_wrap(true);
     l.set_xalign(0.0);
     l.set_halign(gtk::Align::Start);

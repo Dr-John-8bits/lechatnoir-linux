@@ -112,6 +112,7 @@ impl ScheduleScreen {
         match current_slot {
             Some(slot) => {
                 let title = gtk::Label::new(Some(&slot.title));
+                title.add_css_class("lcn-body");
                 title.set_wrap(true);
                 title.set_xalign(0.0);
                 title.set_halign(gtk::Align::Start);
@@ -172,6 +173,7 @@ fn slot_row(slot: &ScheduleSlot, is_current: bool, is_live: bool) -> gtk::Box {
 
     let title_row = gtk::Box::new(gtk::Orientation::Horizontal, 8);
     let title = gtk::Label::new(Some(&slot.title));
+    title.add_css_class("lcn-body");
     title.set_wrap(true);
     title.set_xalign(0.0);
     title.set_halign(gtk::Align::Start);
