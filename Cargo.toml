@@ -3,7 +3,7 @@ resolver = "2"
 members = ["crates/lcn-core", "crates/lcn-app"]
 
 [workspace.package]
-version = "26.6.20"
+version = "26.6.29"
 edition = "2021"
 license = "GPL-3.0-only"
 authors = ["Le Chat Noir <radio@lechatnoirradio.fr>"]

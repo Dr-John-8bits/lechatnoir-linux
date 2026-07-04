@@ -9,15 +9,12 @@ doit avoir des droits clairs et compatibles avec la redistribution).
 - **Fichiers concernés** :
   - `data/icons/hicolor/*/apps/fr.lechatnoirradio.Player.png` (icône de l'app, recadrée)
   - `crates/lcn-app/assets/logo.png` (logo affiché dans l'app)
-- **Auteur de la photographie** : **Yirmi June**.
-- **Autorisation** : utilisée et redistribuée **avec l'autorisation de l'auteur**, dans le
-  cadre de cette application et de sa distribution (y compris sur Flathub).
-- **Licence recommandée** : **CC-BY-4.0** (Creative Commons Attribution 4.0) — à confirmer
-  par l'auteur. Cette licence est compatible avec la redistribution d'une application GPL
-  et garantit aux utilisateurs/forks le droit de redistribuer le visuel avec attribution.
-
-> ⚠️ À finaliser avant la PR Flathub : faire confirmer par Yirmi June la licence retenue
-> (idéalement CC-BY-4.0) et, si possible, conserver une trace écrite de cet accord.
+- **Auteur de la photographie** : **Yirmi June**, pseudonyme artistique de l'auteur du projet
+  (Le Chat Noir). Il s'agit donc d'une **œuvre originale de l'auteur de l'application** —
+  aucun droit de tiers n'est impliqué.
+- **Droits** : l'auteur détient l'intégralité des droits sur cette photographie et l'inclut
+  sciemment dans l'application. Le visuel est licencié **CC-BY-4.0** (Creative Commons
+  Attribution 4.0), compatible avec la redistribution de l'application (y compris sur Flathub).
 
 ## Autres ressources
 

@@ -1207,7 +1207,7 @@ checksum = "bbd2bcb4c963f2ddae06a2efc7e9f3591312473c50c6685e1f298068316e66fe"
 
 [[package]]
 name = "lcn-app"
-version = "26.6.20"
+version = "26.6.29"
 dependencies = [
  "async-channel",
  "gstreamer",
@@ -1222,7 +1222,7 @@ dependencies = [
 
 [[package]]
 name = "lcn-core"
-version = "26.6.20"
+version = "26.6.29"
 dependencies = [
  "chrono",
  "chrono-tz",

@@ -29,23 +29,31 @@
   </branding>
   <screenshots>
     <screenshot type="default">
-      <image>https://raw.githubusercontent.com/Dr-John-8bits/lechatnoir-linux/v26.6.20/screenshots/01-accueil-clair.png</image>
+      <image>https://raw.githubusercontent.com/Dr-John-8bits/lechatnoir-linux/v26.6.29/screenshots/01-accueil-clair.png</image>
       <caption>Accueil — direct, derniers titres et programme du jour</caption>
     </screenshot>
     <screenshot>
-      <image>https://raw.githubusercontent.com/Dr-John-8bits/lechatnoir-linux/v26.6.20/screenshots/02-grille-sombre.png</image>
+      <image>https://raw.githubusercontent.com/Dr-John-8bits/lechatnoir-linux/v26.6.29/screenshots/02-grille-sombre.png</image>
       <caption>Grille des programmes (thème sombre)</caption>
     </screenshot>
     <screenshot>
-      <image>https://raw.githubusercontent.com/Dr-John-8bits/lechatnoir-linux/v26.6.20/screenshots/03-voix-clair.png</image>
+      <image>https://raw.githubusercontent.com/Dr-John-8bits/lechatnoir-linux/v26.6.29/screenshots/03-voix-clair.png</image>
       <caption>Voix et formats — les émissions de la station</caption>
     </screenshot>
     <screenshot>
-      <image>https://raw.githubusercontent.com/Dr-John-8bits/lechatnoir-linux/v26.6.20/screenshots/04-apropos-sombre.png</image>
+      <image>https://raw.githubusercontent.com/Dr-John-8bits/lechatnoir-linux/v26.6.29/screenshots/04-apropos-sombre.png</image>
       <caption>À propos de la radio (thème sombre)</caption>
     </screenshot>
   </screenshots>
   <releases>
+    <release version="26.6.29" date="2026-06-29" type="stable">
+      <url type="details">https://github.com/Dr-John-8bits/lechatnoir-linux/releases/tag/v26.6.29</url>
+      <description>
+        <p>Lisibilité du thème clair sur les bureaux non-GNOME (KDE), accueil repensé
+        (accroche vers les actualités), minuteur de veille, notifications de titre à
+        l'antenne, préférences mémorisées et passage au runtime GNOME 50.</p>
+      </description>
+    </release>
     <release version="26.6.20" date="2026-06-20" type="stable">
       <url type="details">https://github.com/Dr-John-8bits/lechatnoir-linux/releases/tag/v26.6.20</url>
       <description>
