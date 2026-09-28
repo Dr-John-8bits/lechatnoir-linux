@@ -1,8 +1,8 @@
 # Licences des ressources visuelles
 
 Le **code** est sous GPL-3.0-only (voir `LICENSE`). Les ressources graphiques suivantes
-ont leur propre régime de droits, documenté ici (exigence Flathub : tout visuel embarqué
-doit avoir des droits clairs et compatibles avec la redistribution).
+ont leur propre régime de droits, documenté ici (tout visuel embarqué doit avoir des droits
+clairs et compatibles avec la redistribution).
 
 ## Photographie « Le Chat Noir » — icône d'application et logo interne
 
@@ -14,7 +14,7 @@ doit avoir des droits clairs et compatibles avec la redistribution).
   aucun droit de tiers n'est impliqué.
 - **Droits** : l'auteur détient l'intégralité des droits sur cette photographie et l'inclut
   sciemment dans l'application. Le visuel est licencié **CC-BY-4.0** (Creative Commons
-  Attribution 4.0), compatible avec la redistribution de l'application (y compris sur Flathub).
+  Attribution 4.0), compatible avec la redistribution de l'application.
 
 ## Autres ressources
 

@@ -1,10 +1,9 @@
-# Manifeste Flatpak — Le Chat Noir Radio (build HORS-LIGNE, conforme Flathub).
+# Manifeste Flatpak — Le Chat Noir Radio (build HORS-LIGNE, reproductible).
 # Les crates Rust sont vendorées via cargo-sources.json (généré par flatpak-cargo-generator
 # à partir de Cargo.lock) : aucun accès réseau pendant la compilation.
 #
-# ⚠️ Pour la SOUMISSION Flathub : remplacer la source `type: dir` par une source `git`
-# pointant le dépôt public + un tag (voir flatpak/FLATHUB-CHECKLIST.md). Le `type: dir`
-# ci-dessous sert au test hors-ligne local.
+# Source `type: dir` = le dépôt lui-même : sert au build local ET au build CI, qui publie
+# l'app dans notre propre dépôt Flatpak.
 app-id: fr.lechatnoirradio.Player
 runtime: org.gnome.Platform
 runtime-version: '50'

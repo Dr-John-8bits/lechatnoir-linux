@@ -12,7 +12,7 @@ crates/
               #   reconnexion, horloge. Tous les tests unitaires. Compile partout.
   lcn-app/    # binaire `lechatnoir-player` : GTK4/libadwaita/Relm4, GStreamer, MPRIS.
 data/         # .desktop, metainfo AppStream, schéma GSettings, icônes hicolor 48→512
-flatpak/      # manifeste Flatpak
+flatpak/      # manifeste Flatpak + crates vendorées (cargo-sources.json)
 snapshots/    # (dans lcn-core) JSON éditoriaux figés, embarqués pour le repli hors-ligne
 ```
 
@@ -33,9 +33,9 @@ cargo run -p lcn-app
 
 Tous les endpoints sont dans `crates/lcn-core/src/config.rs`.
 - Temps réel (`stream.lechatnoirradio.fr/…`) : **figé**, ne change jamais.
-- Contenu éditorial : `CONTENT_BASE_URL` = **préprod** aujourd'hui. Bascule prod = remplacer
-  cette **seule** constante par `PRODUCTION_BASE_URL`. ⚠️ Ne basculer que lorsque
-  `schedule.json` **et** `voices.json` répondent **200** en prod (404 au 13/06/2026).
+- Contenu éditorial : `CONTENT_BASE_URL` = **production** (`https://lechatnoirradio.fr/`)
+  depuis le 21/06/2026. Les snapshots embarqués (`crates/lcn-core/snapshots/`) viennent aussi
+  de la prod.
 
 ## Hooks de dev/test (variables d'environnement)
 
@@ -49,13 +49,16 @@ Tous les endpoints sont dans `crates/lcn-core/src/config.rs`.
 
 ## Packaging
 
-- **Flatpak / Flathub** (canal unique de distribution) : `flatpak/fr.lechatnoirradio.Player.yml`.
-  - Build **hors-ligne** conforme Flathub : crates Rust vendorées dans `flatpak/cargo-sources.json`
+- **Flatpak** (canal unique de distribution) : `flatpak/fr.lechatnoirradio.Player.yml`.
+  - Distribué depuis **notre propre dépôt Flatpak** (auto-hébergé, signé GPG) : installation en un
+    clic depuis le site et mises à jour automatiques. L'app **n'est pas publiée sur Flathub**.
+    *Mise en place en cours.*
+  - Build **hors-ligne** : crates Rust vendorées dans `flatpak/cargo-sources.json`
     (régénérer après tout changement de `Cargo.lock` via `flatpak-cargo-generator`), `cargo --offline`,
     aucun réseau au build (réseau conservé au runtime pour le flux).
   - Test local : `flatpak-builder --user --force-clean --install-deps-from=flathub --install
     build-flatpak flatpak/fr.lechatnoirradio.Player.yml` puis `flatpak run fr.lechatnoirradio.Player`.
-  - Soumission Flathub : voir `flatpak/FLATHUB-CHECKLIST.md`.
+  - CI (`.github/workflows/flatpak.yml`) : build + `flatpak-builder-lint` à chaque push.
 - **App-id** : `fr.lechatnoirradio.Player` (conditionne .desktop, MPRIS, icônes, GSettings).
 - **Licence** : GPL-3.0-only.
 
@@ -67,5 +70,5 @@ Tous les endpoints sont dans `crates/lcn-core/src/config.rs`.
 ## Plateformes
 
 Cible v1 : Ubuntu 24.04+ (GNOME) et Linux Mint 21/22+ (Cinnamon), x86_64, Wayland + X11.
-Crédit photo du logo et de l'icône : **Yirmi June** (utilisée avec autorisation —
-voir [`ASSETS.md`](ASSETS.md) pour les droits des visuels).
+Crédit photo du logo et de l'icône : **Yirmi June**, pseudonyme de l'auteur du projet
+(CC-BY-4.0 — voir [`ASSETS.md`](ASSETS.md) pour les droits des visuels).
